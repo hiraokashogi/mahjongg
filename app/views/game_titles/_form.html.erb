@@ -1,0 +1,25 @@
+<%= form_for(@game_title) do |f| %>
+  <% if @game_title.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@game_title.errors.count, "error") %> prohibited this game_title from being saved:</h2>
+
+      <ul>
+      <% @game_title.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+    <%= f.select(:user1, @users.map{|u| [ u.name, u.id]} , :include_blank => true ) %>
+    <%= f.select(:user2, @users.map{|u| [ u.name, u.id]} ,:include_blank => true ) %>
+    <%= f.select(:user3, @users.map{|u| [ u.name, u.id]} , :include_blank => true ) %>
+    <%= f.select(:user4, @users.map{|u| [ u.name, u.id]} , :include_blank => true ) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

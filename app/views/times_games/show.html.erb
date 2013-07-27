@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Point:</strong>
+  <%= @times_game.point %>
+</p>
+
+<p>
+  <strong>Sta:</strong>
+  <%= @times_game.sta %>
+</p>
+
+<%= link_to 'Edit', edit_times_game_path(@times_game) %> |
+<%= link_to 'Back', times_games_path %>

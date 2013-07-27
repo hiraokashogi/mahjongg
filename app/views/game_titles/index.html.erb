@@ -1,0 +1,26 @@
+<h1>ゲーム一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @game_titles.each do |game_title| %>
+      <tr>
+        <td><%= game_title.title %></td>
+        <td><%= link_to '詳細', game_title %></td>
+        <td><%= link_to 'タイトル編集', edit_game_title_path(game_title) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'ゲーム追加', new_game_title_path %>

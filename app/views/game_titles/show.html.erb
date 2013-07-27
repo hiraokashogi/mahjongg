@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @game_title.title %>
+</p>
+<table class="point_table">
+  <tbody>
+    <tr>
+      <% @users.each do |user| %>
+        <td><%= user.name %></td>
+      <% end %>
+    </tr>
+
+    <% @times.each do |times_game| %>
+      <tr>
+        <td><%= times_game.user1 %></td>
+        <td><%= times_game.user2 %></td>
+        <td><%= times_game.user3 %></td>
+        <td><%= times_game.user4 %></td>
+        <td><%= times_game.sta %></td>
+        <td><%= link_to 'Destroy', times_game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+      <tr>
+        <td><label class="user_totalpoint"></td>
+        <td ><label class="user_totalpoint"></td>
+        <td ><label class="user_totalpoint"></td>
+        <td ><label class="user_totalpoint"></td>
+        <td ><label class=""></td>
+      </tr>
+    <%= form_for(@times_new) do |f| %>
+      <tr>
+        <td><%= f.hidden_field  :title_id, :value => @title_id %><%= f.text_field :user1 %></td>
+        <td><%= f.text_field :user2 %></td>
+        <td><%= f.text_field :user3 %></td>
+        <td><%= f.text_field :user4 %></td>
+        <td><%= f.text_field :sta %></td>
+        <td>
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        </td>
+
+      </tr>
+      
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'タイトル編集', edit_game_title_path(@game_title) %> |
+<%= link_to '戻る', game_titles_path %>

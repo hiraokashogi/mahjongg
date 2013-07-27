@@ -1,0 +1,29 @@
+<h1>Listing times_games</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Point</th>
+      <th>Sta</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @times_games.each do |times_game| %>
+      <tr>
+        <td><%= times_game.point %></td>
+        <td><%= times_game.sta %></td>
+        <td><%= link_to 'Show', times_game %></td>
+        <td><%= link_to 'Edit', edit_times_game_path(times_game) %></td>
+        <td><%= link_to 'Destroy', times_game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Times game', new_times_game_path %>
