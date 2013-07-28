@@ -7,6 +7,7 @@
 <table class="point_table">
   <tbody>
     <tr>
+      <td><label>名前</label></td>
       <% @users.each do |user| %>
         <td><%= user.name %></td>
       <% end %>
@@ -14,19 +15,29 @@
 
     <% @times.each do |times_game| %>
       <tr>
-        <td><%= times_game.user1 %></td>
-        <td><%= times_game.user2 %></td>
-        <td><%= times_game.user3 %></td>
-        <td><%= times_game.user4 %></td>
+        <td><label></label></td>
+        <td><label class="point"><%= times_game.user1 %></label></td>
+        <td><label class="point"><%= times_game.user2 %></label></td>
+        <td><label class="point"><%= times_game.user3 %></label></td>
+        <td><label class="point"><%= times_game.user4 %></label></td>
         <td><%= times_game.sta %></td>
         <td><%= link_to 'Destroy', times_game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
       <tr>
+        <td><label>合計点数</label></td>
         <td><label class="user_totalpoint"></td>
         <td ><label class="user_totalpoint"></td>
         <td ><label class="user_totalpoint"></td>
         <td ><label class="user_totalpoint"></td>
+        <td ><label class=""></td>
+      </tr>
+      <tr>
+        <td><label>アガリ数/ロン数</label></td>
+        <td ><label class="user_sta"></td>
+        <td ><label class="user_sta"></td>
+        <td ><label class="user_sta"></td>
+        <td ><label class="user_sta"></td>
         <td ><label class=""></td>
       </tr>
     <%= form_for(@times_new) do |f| %>
@@ -35,7 +46,7 @@
         <td><%= f.text_field :user2 %></td>
         <td><%= f.text_field :user3 %></td>
         <td><%= f.text_field :user4 %></td>
-        <td><%= f.text_field :sta %></td>
+        <td><%= f.select( :sta, ["ツモ","ロン"] ,:include_blank => true )  %></td>
         <td>
           <div class="actions">
             <%= f.submit %>
@@ -47,5 +58,4 @@
     <% end %>
   </tbody>
 </table>
-<%= link_to 'タイトル編集', edit_game_title_path(@game_title) %> |
 <%= link_to '戻る', game_titles_path %>
