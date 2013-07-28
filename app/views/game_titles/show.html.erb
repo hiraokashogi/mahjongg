@@ -2,7 +2,11 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @game_title.title %>
+  <%= @game_title.title %><br>
+    <label>基本点</label>
+    <label class="default_point"><%= @game_title.default_point  %></label><br>
+    <label>戻り点</label>
+    <label class="back_point"><%= @game_title.back_point %></label><br>
 </p>
 <table class="point_table">
   <tbody>

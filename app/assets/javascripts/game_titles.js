@@ -2,7 +2,9 @@
 $(function(){
 //  max_length = $('.point_table').find("tr").length - 2;
   max_length = $('.point').length;
- 
+  
+  dpoint = parseInt($(".default_point").text())
+  bpoint = parseInt($(".back_point").text())
   status_column = 5;
   user_count = 4;
   user = [0,0,0,0];
@@ -18,7 +20,7 @@ $(function(){
 
     if( !isNaN( obj_num ) )
     {
-      user[ user_num ] = obj_num;
+      user[ user_num ] += obj_num;
     }
     if( obj_num > 0 )
     {
@@ -58,7 +60,7 @@ $(function(){
   {
     if(  user[j] != 0 )
     {
-      $($(".user_totalpoint")[j]).text(user[j])
+      $($(".user_totalpoint")[j]).text(user[j] + dpoint )
     }
     $($(".user_sta")[j]).text(user_t[j] + "/" + user_r[j])
 //  $($(".user_totalpoint")[1]).text(user2)

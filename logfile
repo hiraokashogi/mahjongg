@@ -26,3 +26,9 @@ LOG:  database system is shut down
 LOG:  database system was shut down at 2013-07-24 00:01:45 JST
 LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
+FATAL:  database "mahjangg_development" does not exist
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "game_titles".* FROM "game_titles"  WHERE "game_titles"."id" = $1 LIMIT 1
+ERROR:  syntax error at or near "back_point" at character 44
+STATEMENT:  update game_titles set default_point=25000 back_point=25000
+	;

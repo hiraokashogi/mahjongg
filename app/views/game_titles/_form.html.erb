@@ -12,8 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.label :title %>
+    <%= f.text_field :title %><br>
+    <label>基本点</label>
+    <%= f.text_field :default_point %><br>
+    <label>戻り点</label>
+    <%= f.text_field :back_point %><br>
     <%= f.select(:user1, @users.map{|u| [ u.name, u.id]} , :include_blank => true ) %>
     <%= f.select(:user2, @users.map{|u| [ u.name, u.id]} ,:include_blank => true ) %>
     <%= f.select(:user3, @users.map{|u| [ u.name, u.id]} , :include_blank => true ) %>
