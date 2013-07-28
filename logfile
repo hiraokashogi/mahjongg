@@ -32,3 +32,11 @@ STATEMENT:  SELECT  "game_titles".* FROM "game_titles"  WHERE "game_titles"."id"
 ERROR:  syntax error at or near "back_point" at character 44
 STATEMENT:  update game_titles set default_point=25000 back_point=25000
 	;
+ERROR:  argument of WHERE must be type boolean, not type integer at character 72
+STATEMENT:  SELECT SUM("times_games"."user1") AS sum_id FROM "times_games"  WHERE (23)
+ERROR:  syntax error at or near ")" at character 92
+STATEMENT:  SELECT SUM("times_games"."user1") AS sum_id FROM "times_games"  WHERE (game_titles_id = 23))
+ERROR:  argument of WHERE must be type boolean, not type integer at character 40
+STATEMENT:  SELECT  "users".* FROM "users"  WHERE (6) LIMIT 1
+ERROR:  argument of WHERE must be type boolean, not type integer at character 40
+STATEMENT:  SELECT  "users".* FROM "users"  WHERE (7) LIMIT 1

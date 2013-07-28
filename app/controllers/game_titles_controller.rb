@@ -5,14 +5,14 @@ class GameTitlesController < ApplicationController
   # GET /game_titles.json
   def index
     @game_titles = GameTitle.all
+    @times = TimesGame.all
+    @users = User.all
   end
 
   # GET /game_titles/1
   # GET /game_titles/1.json
   def show
     @title_id = params[:id]
-p "***************************************************************************************************"
-p @title_id
     @times = TimesGame.where("game_titles_id=#{params[:id]}")
     @times_new = TimesGame.new
     g = GameTitle.where("id= #{params[:id]}").first
@@ -38,7 +38,15 @@ p @users
   # POST /game_titles
   # POST /game_titles.json
   def create
-    @game_title = GameTitle.new(title: params["game_title"]["title"],  user1: params["game_title"]["user1"], user2: params["game_title"]["user2"], user3:params["game_title"]["user3"], user4: params["game_title"]["user4"])
+    @game_title = GameTitle.new(
+      title: params["game_title"]["title"],  
+      default_point: params["game_title"]["default_point"],
+      back_point: params["game_title"]["back_point"],
+      user1: params["game_title"]["user1"], 
+      user2: params["game_title"]["user2"], 
+      user3:params["game_title"]["user3"], 
+      user4: params["game_title"]["user4"]
+    )
 
 
 

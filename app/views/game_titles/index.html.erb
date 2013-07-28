@@ -12,10 +12,27 @@
 
   <tbody>
     <% @game_titles.each do |game_title| %>
+    <% user1_point = @times.where( "game_titles_id = #{game_title.id}").sum(:user1) == 0 ? "" : user4_point = @times.where( "game_titles_id = #{game_title.id}").sum(:user1) %>
+    <% user2_point = @times.where( "game_titles_id = #{game_title.id}").sum(:user2) == 0 ? "" : user4_point = @times.where( "game_titles_id = #{game_title.id}").sum(:user2) %>
+    <% user3_point = @times.where( "game_titles_id = #{game_title.id}").sum(:user3) == 0 ? "" : user4_point = @times.where( "game_titles_id = #{game_title.id}").sum(:user3) %>
+    <% user4_point = @times.where( "game_titles_id = #{game_title.id}").sum(:user4) == 0 ? "" : user4_point = @times.where( "game_titles_id = #{game_title.id}").sum(:user4) %>
       <tr>
         <td><%= game_title.title %></td>
         <td><%= link_to '詳細', game_title %></td>
         <td><%= link_to 'タイトル編集', edit_game_title_path(game_title) %></td>
+        <td><%= @users.find_by(id: game_title.user1).nil? ? "" : @users.find_by(id: game_title.user1).name %></td>
+        <td><%= @users.find_by(id: game_title.user2).nil? ? "" : @users.find_by(id: game_title.user2).name %></td>
+        <td><%= @users.find_by(id: game_title.user3).nil? ? "" : @users.find_by(id: game_title.user3).name %></td>
+        <td><%= @users.find_by(id: game_title.user4).nil? ? "" : @users.find_by(id: game_title.user4).name %></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= user1_point %></td>
+        <td><%= user2_point %></td>
+        <td><%= user3_point %></td>
+        <td><%= user4_point %></td>
       </tr>
     <% end %>
   </tbody>
